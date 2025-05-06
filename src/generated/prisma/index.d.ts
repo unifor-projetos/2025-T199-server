@@ -14,10 +14,20 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model User
+ * Model BannerItem
  * 
  */
-export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+export type BannerItem = $Result.DefaultSelection<Prisma.$BannerItemPayload>
+/**
+ * Model MapItem
+ * 
+ */
+export type MapItem = $Result.DefaultSelection<Prisma.$MapItemPayload>
+/**
+ * Model ExhibitionItem
+ * 
+ */
+export type ExhibitionItem = $Result.DefaultSelection<Prisma.$ExhibitionItemPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -26,8 +36,8 @@ export type User = $Result.DefaultSelection<Prisma.$UserPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Users
- * const users = await prisma.user.findMany()
+ * // Fetch zero or more BannerItems
+ * const bannerItems = await prisma.bannerItem.findMany()
  * ```
  *
  *
@@ -47,8 +57,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Users
-   * const users = await prisma.user.findMany()
+   * // Fetch zero or more BannerItems
+   * const bannerItems = await prisma.bannerItem.findMany()
    * ```
    *
    *
@@ -145,14 +155,34 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.user`: Exposes CRUD operations for the **User** model.
+   * `prisma.bannerItem`: Exposes CRUD operations for the **BannerItem** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Users
-    * const users = await prisma.user.findMany()
+    * // Fetch zero or more BannerItems
+    * const bannerItems = await prisma.bannerItem.findMany()
     * ```
     */
-  get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+  get bannerItem(): Prisma.BannerItemDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.mapItem`: Exposes CRUD operations for the **MapItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more MapItems
+    * const mapItems = await prisma.mapItem.findMany()
+    * ```
+    */
+  get mapItem(): Prisma.MapItemDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.exhibitionItem`: Exposes CRUD operations for the **ExhibitionItem** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ExhibitionItems
+    * const exhibitionItems = await prisma.exhibitionItem.findMany()
+    * ```
+    */
+  get exhibitionItem(): Prisma.ExhibitionItemDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -593,7 +623,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    User: 'User'
+    BannerItem: 'BannerItem',
+    MapItem: 'MapItem',
+    ExhibitionItem: 'ExhibitionItem'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -612,81 +644,229 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user"
+      modelProps: "bannerItem" | "mapItem" | "exhibitionItem"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      User: {
-        payload: Prisma.$UserPayload<ExtArgs>
-        fields: Prisma.UserFieldRefs
+      BannerItem: {
+        payload: Prisma.$BannerItemPayload<ExtArgs>
+        fields: Prisma.BannerItemFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.UserFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+            args: Prisma.BannerItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.UserFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.BannerItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>
           }
           findFirst: {
-            args: Prisma.UserFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload> | null
+            args: Prisma.BannerItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.UserFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.BannerItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>
           }
           findMany: {
-            args: Prisma.UserFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.BannerItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>[]
           }
           create: {
-            args: Prisma.UserCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.BannerItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>
           }
           createMany: {
-            args: Prisma.UserCreateManyArgs<ExtArgs>
+            args: Prisma.BannerItemCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.BannerItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>[]
           }
           delete: {
-            args: Prisma.UserDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.BannerItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>
           }
           update: {
-            args: Prisma.UserUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.BannerItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>
           }
           deleteMany: {
-            args: Prisma.UserDeleteManyArgs<ExtArgs>
+            args: Prisma.BannerItemDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.UserUpdateManyArgs<ExtArgs>
+            args: Prisma.BannerItemUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.UserUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
+            args: Prisma.BannerItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>[]
           }
           upsert: {
-            args: Prisma.UserUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>
+            args: Prisma.BannerItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BannerItemPayload>
           }
           aggregate: {
-            args: Prisma.UserAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateUser>
+            args: Prisma.BannerItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBannerItem>
           }
           groupBy: {
-            args: Prisma.UserGroupByArgs<ExtArgs>
-            result: $Utils.Optional<UserGroupByOutputType>[]
+            args: Prisma.BannerItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BannerItemGroupByOutputType>[]
           }
           count: {
-            args: Prisma.UserCountArgs<ExtArgs>
-            result: $Utils.Optional<UserCountAggregateOutputType> | number
+            args: Prisma.BannerItemCountArgs<ExtArgs>
+            result: $Utils.Optional<BannerItemCountAggregateOutputType> | number
+          }
+        }
+      }
+      MapItem: {
+        payload: Prisma.$MapItemPayload<ExtArgs>
+        fields: Prisma.MapItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.MapItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.MapItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>
+          }
+          findFirst: {
+            args: Prisma.MapItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.MapItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>
+          }
+          findMany: {
+            args: Prisma.MapItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>[]
+          }
+          create: {
+            args: Prisma.MapItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>
+          }
+          createMany: {
+            args: Prisma.MapItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.MapItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>[]
+          }
+          delete: {
+            args: Prisma.MapItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>
+          }
+          update: {
+            args: Prisma.MapItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.MapItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.MapItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.MapItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>[]
+          }
+          upsert: {
+            args: Prisma.MapItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MapItemPayload>
+          }
+          aggregate: {
+            args: Prisma.MapItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMapItem>
+          }
+          groupBy: {
+            args: Prisma.MapItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MapItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.MapItemCountArgs<ExtArgs>
+            result: $Utils.Optional<MapItemCountAggregateOutputType> | number
+          }
+        }
+      }
+      ExhibitionItem: {
+        payload: Prisma.$ExhibitionItemPayload<ExtArgs>
+        fields: Prisma.ExhibitionItemFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ExhibitionItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ExhibitionItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>
+          }
+          findFirst: {
+            args: Prisma.ExhibitionItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ExhibitionItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>
+          }
+          findMany: {
+            args: Prisma.ExhibitionItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>[]
+          }
+          create: {
+            args: Prisma.ExhibitionItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>
+          }
+          createMany: {
+            args: Prisma.ExhibitionItemCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ExhibitionItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>[]
+          }
+          delete: {
+            args: Prisma.ExhibitionItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>
+          }
+          update: {
+            args: Prisma.ExhibitionItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>
+          }
+          deleteMany: {
+            args: Prisma.ExhibitionItemDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ExhibitionItemUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ExhibitionItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>[]
+          }
+          upsert: {
+            args: Prisma.ExhibitionItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ExhibitionItemPayload>
+          }
+          aggregate: {
+            args: Prisma.ExhibitionItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateExhibitionItem>
+          }
+          groupBy: {
+            args: Prisma.ExhibitionItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ExhibitionItemGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ExhibitionItemCountArgs<ExtArgs>
+            result: $Utils.Optional<ExhibitionItemCountAggregateOutputType> | number
           }
         }
       }
@@ -774,7 +954,9 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    user?: UserOmit
+    bannerItem?: BannerItemOmit
+    mapItem?: MapItemOmit
+    exhibitionItem?: ExhibitionItemOmit
   }
 
   /* Types for Logging */
@@ -870,346 +1052,334 @@ export namespace Prisma {
    */
 
   /**
-   * Model User
+   * Model BannerItem
    */
 
-  export type AggregateUser = {
-    _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+  export type AggregateBannerItem = {
+    _count: BannerItemCountAggregateOutputType | null
+    _avg: BannerItemAvgAggregateOutputType | null
+    _sum: BannerItemSumAggregateOutputType | null
+    _min: BannerItemMinAggregateOutputType | null
+    _max: BannerItemMaxAggregateOutputType | null
   }
 
-  export type UserAvgAggregateOutputType = {
+  export type BannerItemAvgAggregateOutputType = {
     id: number | null
   }
 
-  export type UserSumAggregateOutputType = {
+  export type BannerItemSumAggregateOutputType = {
     id: number | null
   }
 
-  export type UserMinAggregateOutputType = {
+  export type BannerItemMinAggregateOutputType = {
     id: number | null
-    email: string | null
-    name: string | null
+    imageUrl: string | null
   }
 
-  export type UserMaxAggregateOutputType = {
+  export type BannerItemMaxAggregateOutputType = {
     id: number | null
-    email: string | null
-    name: string | null
+    imageUrl: string | null
   }
 
-  export type UserCountAggregateOutputType = {
+  export type BannerItemCountAggregateOutputType = {
     id: number
-    email: number
-    name: number
+    imageUrl: number
     _all: number
   }
 
 
-  export type UserAvgAggregateInputType = {
+  export type BannerItemAvgAggregateInputType = {
     id?: true
   }
 
-  export type UserSumAggregateInputType = {
+  export type BannerItemSumAggregateInputType = {
     id?: true
   }
 
-  export type UserMinAggregateInputType = {
+  export type BannerItemMinAggregateInputType = {
     id?: true
-    email?: true
-    name?: true
+    imageUrl?: true
   }
 
-  export type UserMaxAggregateInputType = {
+  export type BannerItemMaxAggregateInputType = {
     id?: true
-    email?: true
-    name?: true
+    imageUrl?: true
   }
 
-  export type UserCountAggregateInputType = {
+  export type BannerItemCountAggregateInputType = {
     id?: true
-    email?: true
-    name?: true
+    imageUrl?: true
     _all?: true
   }
 
-  export type UserAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which User to aggregate.
+     * Filter which BannerItem to aggregate.
      */
-    where?: UserWhereInput
+    where?: BannerItemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of BannerItems to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: BannerItemOrderByWithRelationInput | BannerItemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: BannerItemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` BannerItems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` BannerItems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Users
+     * Count returned BannerItems
     **/
-    _count?: true | UserCountAggregateInputType
+    _count?: true | BannerItemCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: UserAvgAggregateInputType
+    _avg?: BannerItemAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: UserSumAggregateInputType
+    _sum?: BannerItemSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: UserMinAggregateInputType
+    _min?: BannerItemMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: UserMaxAggregateInputType
+    _max?: BannerItemMaxAggregateInputType
   }
 
-  export type GetUserAggregateType<T extends UserAggregateArgs> = {
-        [P in keyof T & keyof AggregateUser]: P extends '_count' | 'count'
+  export type GetBannerItemAggregateType<T extends BannerItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateBannerItem]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateUser[P]>
-      : GetScalarType<T[P], AggregateUser[P]>
+        : GetScalarType<T[P], AggregateBannerItem[P]>
+      : GetScalarType<T[P], AggregateBannerItem[P]>
   }
 
 
 
 
-  export type UserGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: UserWhereInput
-    orderBy?: UserOrderByWithAggregationInput | UserOrderByWithAggregationInput[]
-    by: UserScalarFieldEnum[] | UserScalarFieldEnum
-    having?: UserScalarWhereWithAggregatesInput
+  export type BannerItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BannerItemWhereInput
+    orderBy?: BannerItemOrderByWithAggregationInput | BannerItemOrderByWithAggregationInput[]
+    by: BannerItemScalarFieldEnum[] | BannerItemScalarFieldEnum
+    having?: BannerItemScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: UserCountAggregateInputType | true
-    _avg?: UserAvgAggregateInputType
-    _sum?: UserSumAggregateInputType
-    _min?: UserMinAggregateInputType
-    _max?: UserMaxAggregateInputType
+    _count?: BannerItemCountAggregateInputType | true
+    _avg?: BannerItemAvgAggregateInputType
+    _sum?: BannerItemSumAggregateInputType
+    _min?: BannerItemMinAggregateInputType
+    _max?: BannerItemMaxAggregateInputType
   }
 
-  export type UserGroupByOutputType = {
+  export type BannerItemGroupByOutputType = {
     id: number
-    email: string
-    name: string | null
-    _count: UserCountAggregateOutputType | null
-    _avg: UserAvgAggregateOutputType | null
-    _sum: UserSumAggregateOutputType | null
-    _min: UserMinAggregateOutputType | null
-    _max: UserMaxAggregateOutputType | null
+    imageUrl: string
+    _count: BannerItemCountAggregateOutputType | null
+    _avg: BannerItemAvgAggregateOutputType | null
+    _sum: BannerItemSumAggregateOutputType | null
+    _min: BannerItemMinAggregateOutputType | null
+    _max: BannerItemMaxAggregateOutputType | null
   }
 
-  type GetUserGroupByPayload<T extends UserGroupByArgs> = Prisma.PrismaPromise<
+  type GetBannerItemGroupByPayload<T extends BannerItemGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<UserGroupByOutputType, T['by']> &
+      PickEnumerable<BannerItemGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof UserGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof BannerItemGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], UserGroupByOutputType[P]>
-            : GetScalarType<T[P], UserGroupByOutputType[P]>
+              : GetScalarType<T[P], BannerItemGroupByOutputType[P]>
+            : GetScalarType<T[P], BannerItemGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type UserSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type BannerItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
-    name?: boolean
-  }, ExtArgs["result"]["user"]>
+    imageUrl?: boolean
+  }, ExtArgs["result"]["bannerItem"]>
 
-  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type BannerItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
-    name?: boolean
-  }, ExtArgs["result"]["user"]>
+    imageUrl?: boolean
+  }, ExtArgs["result"]["bannerItem"]>
 
-  export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type BannerItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
-    name?: boolean
-  }, ExtArgs["result"]["user"]>
+    imageUrl?: boolean
+  }, ExtArgs["result"]["bannerItem"]>
 
-  export type UserSelectScalar = {
+  export type BannerItemSelectScalar = {
     id?: boolean
-    email?: boolean
-    name?: boolean
+    imageUrl?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "name", ExtArgs["result"]["user"]>
+  export type BannerItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "imageUrl", ExtArgs["result"]["bannerItem"]>
 
-  export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "User"
+  export type $BannerItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "BannerItem"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      email: string
-      name: string | null
-    }, ExtArgs["result"]["user"]>
+      imageUrl: string
+    }, ExtArgs["result"]["bannerItem"]>
     composites: {}
   }
 
-  type UserGetPayload<S extends boolean | null | undefined | UserDefaultArgs> = $Result.GetResult<Prisma.$UserPayload, S>
+  type BannerItemGetPayload<S extends boolean | null | undefined | BannerItemDefaultArgs> = $Result.GetResult<Prisma.$BannerItemPayload, S>
 
-  type UserCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<UserFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: UserCountAggregateInputType | true
+  type BannerItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BannerItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BannerItemCountAggregateInputType | true
     }
 
-  export interface UserDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['User'], meta: { name: 'User' } }
+  export interface BannerItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['BannerItem'], meta: { name: 'BannerItem' } }
     /**
-     * Find zero or one User that matches the filter.
-     * @param {UserFindUniqueArgs} args - Arguments to find a User
+     * Find zero or one BannerItem that matches the filter.
+     * @param {BannerItemFindUniqueArgs} args - Arguments to find a BannerItem
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUnique({
+     * // Get one BannerItem
+     * const bannerItem = await prisma.bannerItem.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends UserFindUniqueArgs>(args: SelectSubset<T, UserFindUniqueArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends BannerItemFindUniqueArgs>(args: SelectSubset<T, BannerItemFindUniqueArgs<ExtArgs>>): Prisma__BannerItemClient<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one User that matches the filter or throw an error with `error.code='P2025'`
+     * Find one BannerItem that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {UserFindUniqueOrThrowArgs} args - Arguments to find a User
+     * @param {BannerItemFindUniqueOrThrowArgs} args - Arguments to find a BannerItem
      * @example
-     * // Get one User
-     * const user = await prisma.user.findUniqueOrThrow({
+     * // Get one BannerItem
+     * const bannerItem = await prisma.bannerItem.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends UserFindUniqueOrThrowArgs>(args: SelectSubset<T, UserFindUniqueOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends BannerItemFindUniqueOrThrowArgs>(args: SelectSubset<T, BannerItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BannerItemClient<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first User that matches the filter.
+     * Find the first BannerItem that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstArgs} args - Arguments to find a User
+     * @param {BannerItemFindFirstArgs} args - Arguments to find a BannerItem
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirst({
+     * // Get one BannerItem
+     * const bannerItem = await prisma.bannerItem.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends UserFindFirstArgs>(args?: SelectSubset<T, UserFindFirstArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends BannerItemFindFirstArgs>(args?: SelectSubset<T, BannerItemFindFirstArgs<ExtArgs>>): Prisma__BannerItemClient<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first User that matches the filter or
+     * Find the first BannerItem that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindFirstOrThrowArgs} args - Arguments to find a User
+     * @param {BannerItemFindFirstOrThrowArgs} args - Arguments to find a BannerItem
      * @example
-     * // Get one User
-     * const user = await prisma.user.findFirstOrThrow({
+     * // Get one BannerItem
+     * const bannerItem = await prisma.bannerItem.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends UserFindFirstOrThrowArgs>(args?: SelectSubset<T, UserFindFirstOrThrowArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends BannerItemFindFirstOrThrowArgs>(args?: SelectSubset<T, BannerItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__BannerItemClient<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Users that matches the filter.
+     * Find zero or more BannerItems that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {BannerItemFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Users
-     * const users = await prisma.user.findMany()
+     * // Get all BannerItems
+     * const bannerItems = await prisma.bannerItem.findMany()
      * 
-     * // Get first 10 Users
-     * const users = await prisma.user.findMany({ take: 10 })
+     * // Get first 10 BannerItems
+     * const bannerItems = await prisma.bannerItem.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const userWithIdOnly = await prisma.user.findMany({ select: { id: true } })
+     * const bannerItemWithIdOnly = await prisma.bannerItem.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends UserFindManyArgs>(args?: SelectSubset<T, UserFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends BannerItemFindManyArgs>(args?: SelectSubset<T, BannerItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a User.
-     * @param {UserCreateArgs} args - Arguments to create a User.
+     * Create a BannerItem.
+     * @param {BannerItemCreateArgs} args - Arguments to create a BannerItem.
      * @example
-     * // Create one User
-     * const User = await prisma.user.create({
+     * // Create one BannerItem
+     * const BannerItem = await prisma.bannerItem.create({
      *   data: {
-     *     // ... data to create a User
+     *     // ... data to create a BannerItem
      *   }
      * })
      * 
      */
-    create<T extends UserCreateArgs>(args: SelectSubset<T, UserCreateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends BannerItemCreateArgs>(args: SelectSubset<T, BannerItemCreateArgs<ExtArgs>>): Prisma__BannerItemClient<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Users.
-     * @param {UserCreateManyArgs} args - Arguments to create many Users.
+     * Create many BannerItems.
+     * @param {BannerItemCreateManyArgs} args - Arguments to create many BannerItems.
      * @example
-     * // Create many Users
-     * const user = await prisma.user.createMany({
+     * // Create many BannerItems
+     * const bannerItem = await prisma.bannerItem.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends BannerItemCreateManyArgs>(args?: SelectSubset<T, BannerItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Users and returns the data saved in the database.
-     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
+     * Create many BannerItems and returns the data saved in the database.
+     * @param {BannerItemCreateManyAndReturnArgs} args - Arguments to create many BannerItems.
      * @example
-     * // Create many Users
-     * const user = await prisma.user.createManyAndReturn({
+     * // Create many BannerItems
+     * const bannerItem = await prisma.bannerItem.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.createManyAndReturn({
+     * // Create many BannerItems and only return the `id`
+     * const bannerItemWithIdOnly = await prisma.bannerItem.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1219,28 +1389,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends BannerItemCreateManyAndReturnArgs>(args?: SelectSubset<T, BannerItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a User.
-     * @param {UserDeleteArgs} args - Arguments to delete one User.
+     * Delete a BannerItem.
+     * @param {BannerItemDeleteArgs} args - Arguments to delete one BannerItem.
      * @example
-     * // Delete one User
-     * const User = await prisma.user.delete({
+     * // Delete one BannerItem
+     * const BannerItem = await prisma.bannerItem.delete({
      *   where: {
-     *     // ... filter to delete one User
+     *     // ... filter to delete one BannerItem
      *   }
      * })
      * 
      */
-    delete<T extends UserDeleteArgs>(args: SelectSubset<T, UserDeleteArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends BannerItemDeleteArgs>(args: SelectSubset<T, BannerItemDeleteArgs<ExtArgs>>): Prisma__BannerItemClient<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one User.
-     * @param {UserUpdateArgs} args - Arguments to update one User.
+     * Update one BannerItem.
+     * @param {BannerItemUpdateArgs} args - Arguments to update one BannerItem.
      * @example
-     * // Update one User
-     * const user = await prisma.user.update({
+     * // Update one BannerItem
+     * const bannerItem = await prisma.bannerItem.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1250,30 +1420,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends UserUpdateArgs>(args: SelectSubset<T, UserUpdateArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends BannerItemUpdateArgs>(args: SelectSubset<T, BannerItemUpdateArgs<ExtArgs>>): Prisma__BannerItemClient<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Users.
-     * @param {UserDeleteManyArgs} args - Arguments to filter Users to delete.
+     * Delete zero or more BannerItems.
+     * @param {BannerItemDeleteManyArgs} args - Arguments to filter BannerItems to delete.
      * @example
-     * // Delete a few Users
-     * const { count } = await prisma.user.deleteMany({
+     * // Delete a few BannerItems
+     * const { count } = await prisma.bannerItem.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends UserDeleteManyArgs>(args?: SelectSubset<T, UserDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends BannerItemDeleteManyArgs>(args?: SelectSubset<T, BannerItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Users.
+     * Update zero or more BannerItems.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {BannerItemUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Users
-     * const user = await prisma.user.updateMany({
+     * // Update many BannerItems
+     * const bannerItem = await prisma.bannerItem.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1283,14 +1453,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends UserUpdateManyArgs>(args: SelectSubset<T, UserUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends BannerItemUpdateManyArgs>(args: SelectSubset<T, BannerItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Users and returns the data updated in the database.
-     * @param {UserUpdateManyAndReturnArgs} args - Arguments to update many Users.
+     * Update zero or more BannerItems and returns the data updated in the database.
+     * @param {BannerItemUpdateManyAndReturnArgs} args - Arguments to update many BannerItems.
      * @example
-     * // Update many Users
-     * const user = await prisma.user.updateManyAndReturn({
+     * // Update many BannerItems
+     * const bannerItem = await prisma.bannerItem.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1299,8 +1469,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.updateManyAndReturn({
+     * // Update zero or more BannerItems and only return the `id`
+     * const bannerItemWithIdOnly = await prisma.bannerItem.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1313,56 +1483,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends UserUpdateManyAndReturnArgs>(args: SelectSubset<T, UserUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends BannerItemUpdateManyAndReturnArgs>(args: SelectSubset<T, BannerItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one User.
-     * @param {UserUpsertArgs} args - Arguments to update or create a User.
+     * Create or update one BannerItem.
+     * @param {BannerItemUpsertArgs} args - Arguments to update or create a BannerItem.
      * @example
-     * // Update or create a User
-     * const user = await prisma.user.upsert({
+     * // Update or create a BannerItem
+     * const bannerItem = await prisma.bannerItem.upsert({
      *   create: {
-     *     // ... data to create a User
+     *     // ... data to create a BannerItem
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the User we want to update
+     *     // ... the filter for the BannerItem we want to update
      *   }
      * })
      */
-    upsert<T extends UserUpsertArgs>(args: SelectSubset<T, UserUpsertArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends BannerItemUpsertArgs>(args: SelectSubset<T, BannerItemUpsertArgs<ExtArgs>>): Prisma__BannerItemClient<$Result.GetResult<Prisma.$BannerItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Users.
+     * Count the number of BannerItems.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserCountArgs} args - Arguments to filter Users to count.
+     * @param {BannerItemCountArgs} args - Arguments to filter BannerItems to count.
      * @example
-     * // Count the number of Users
-     * const count = await prisma.user.count({
+     * // Count the number of BannerItems
+     * const count = await prisma.bannerItem.count({
      *   where: {
-     *     // ... the filter for the Users we want to count
+     *     // ... the filter for the BannerItems we want to count
      *   }
      * })
     **/
-    count<T extends UserCountArgs>(
-      args?: Subset<T, UserCountArgs>,
+    count<T extends BannerItemCountArgs>(
+      args?: Subset<T, BannerItemCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], UserCountAggregateOutputType>
+          : GetScalarType<T['select'], BannerItemCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a User.
+     * Allows you to perform aggregations operations on a BannerItem.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {BannerItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1382,13 +1552,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends UserAggregateArgs>(args: Subset<T, UserAggregateArgs>): Prisma.PrismaPromise<GetUserAggregateType<T>>
+    aggregate<T extends BannerItemAggregateArgs>(args: Subset<T, BannerItemAggregateArgs>): Prisma.PrismaPromise<GetBannerItemAggregateType<T>>
 
     /**
-     * Group by User.
+     * Group by BannerItem.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {UserGroupByArgs} args - Group by arguments.
+     * @param {BannerItemGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1403,14 +1573,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends UserGroupByArgs,
+      T extends BannerItemGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: UserGroupByArgs['orderBy'] }
-        : { orderBy?: UserGroupByArgs['orderBy'] },
+        ? { orderBy: BannerItemGroupByArgs['orderBy'] }
+        : { orderBy?: BannerItemGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1459,20 +1629,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, UserGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetUserGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, BannerItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBannerItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the User model
+   * Fields of the BannerItem model
    */
-  readonly fields: UserFieldRefs;
+  readonly fields: BannerItemFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for User.
+   * The delegate class that acts as a "Promise-like" for BannerItem.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__BannerItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1500,373 +1670,2434 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the User model
+   * Fields of the BannerItem model
    */
-  interface UserFieldRefs {
-    readonly id: FieldRef<"User", 'Int'>
-    readonly email: FieldRef<"User", 'String'>
-    readonly name: FieldRef<"User", 'String'>
+  interface BannerItemFieldRefs {
+    readonly id: FieldRef<"BannerItem", 'Int'>
+    readonly imageUrl: FieldRef<"BannerItem", 'String'>
   }
     
 
   // Custom InputTypes
   /**
-   * User findUnique
+   * BannerItem findUnique
    */
-  export type UserFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which BannerItem to fetch.
      */
-    where: UserWhereUniqueInput
+    where: BannerItemWhereUniqueInput
   }
 
   /**
-   * User findUniqueOrThrow
+   * BannerItem findUniqueOrThrow
    */
-  export type UserFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which BannerItem to fetch.
      */
-    where: UserWhereUniqueInput
+    where: BannerItemWhereUniqueInput
   }
 
   /**
-   * User findFirst
+   * BannerItem findFirst
    */
-  export type UserFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which BannerItem to fetch.
      */
-    where?: UserWhereInput
+    where?: BannerItemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of BannerItems to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: BannerItemOrderByWithRelationInput | BannerItemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for BannerItems.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: BannerItemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` BannerItems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` BannerItems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of BannerItems.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: BannerItemScalarFieldEnum | BannerItemScalarFieldEnum[]
   }
 
   /**
-   * User findFirstOrThrow
+   * BannerItem findFirstOrThrow
    */
-  export type UserFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * Filter, which User to fetch.
+     * Filter, which BannerItem to fetch.
      */
-    where?: UserWhereInput
+    where?: BannerItemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of BannerItems to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: BannerItemOrderByWithRelationInput | BannerItemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Users.
+     * Sets the position for searching for BannerItems.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: BannerItemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` BannerItems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` BannerItems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Users.
+     * Filter by unique combinations of BannerItems.
      */
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: BannerItemScalarFieldEnum | BannerItemScalarFieldEnum[]
   }
 
   /**
-   * User findMany
+   * BannerItem findMany
    */
-  export type UserFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * Filter, which Users to fetch.
+     * Filter, which BannerItems to fetch.
      */
-    where?: UserWhereInput
+    where?: BannerItemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Users to fetch.
+     * Determine the order of BannerItems to fetch.
      */
-    orderBy?: UserOrderByWithRelationInput | UserOrderByWithRelationInput[]
+    orderBy?: BannerItemOrderByWithRelationInput | BannerItemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Users.
+     * Sets the position for listing BannerItems.
      */
-    cursor?: UserWhereUniqueInput
+    cursor?: BannerItemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Users from the position of the cursor.
+     * Take `±n` BannerItems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Users.
+     * Skip the first `n` BannerItems.
      */
     skip?: number
-    distinct?: UserScalarFieldEnum | UserScalarFieldEnum[]
+    distinct?: BannerItemScalarFieldEnum | BannerItemScalarFieldEnum[]
   }
 
   /**
-   * User create
+   * BannerItem create
    */
-  export type UserCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * The data needed to create a User.
+     * The data needed to create a BannerItem.
      */
-    data: XOR<UserCreateInput, UserUncheckedCreateInput>
+    data: XOR<BannerItemCreateInput, BannerItemUncheckedCreateInput>
   }
 
   /**
-   * User createMany
+   * BannerItem createMany
    */
-  export type UserCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Users.
+     * The data used to create many BannerItems.
      */
-    data: UserCreateManyInput | UserCreateManyInput[]
+    data: BannerItemCreateManyInput | BannerItemCreateManyInput[]
   }
 
   /**
-   * User createManyAndReturn
+   * BannerItem createManyAndReturn
    */
-  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
+    select?: BannerItemSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * The data used to create many Users.
+     * The data used to create many BannerItems.
      */
-    data: UserCreateManyInput | UserCreateManyInput[]
+    data: BannerItemCreateManyInput | BannerItemCreateManyInput[]
   }
 
   /**
-   * User update
+   * BannerItem update
    */
-  export type UserUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * The data needed to update a User.
+     * The data needed to update a BannerItem.
      */
-    data: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    data: XOR<BannerItemUpdateInput, BannerItemUncheckedUpdateInput>
     /**
-     * Choose, which User to update.
+     * Choose, which BannerItem to update.
      */
-    where: UserWhereUniqueInput
+    where: BannerItemWhereUniqueInput
   }
 
   /**
-   * User updateMany
+   * BannerItem updateMany
    */
-  export type UserUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Users.
+     * The data used to update BannerItems.
      */
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    data: XOR<BannerItemUpdateManyMutationInput, BannerItemUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which BannerItems to update
      */
-    where?: UserWhereInput
+    where?: BannerItemWhereInput
     /**
-     * Limit how many Users to update.
+     * Limit how many BannerItems to update.
      */
     limit?: number
   }
 
   /**
-   * User updateManyAndReturn
+   * BannerItem updateManyAndReturn
    */
-  export type UserUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: BannerItemSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * The data used to update Users.
+     * The data used to update BannerItems.
      */
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyInput>
+    data: XOR<BannerItemUpdateManyMutationInput, BannerItemUncheckedUpdateManyInput>
     /**
-     * Filter which Users to update
+     * Filter which BannerItems to update
      */
-    where?: UserWhereInput
+    where?: BannerItemWhereInput
     /**
-     * Limit how many Users to update.
+     * Limit how many BannerItems to update.
      */
     limit?: number
   }
 
   /**
-   * User upsert
+   * BannerItem upsert
    */
-  export type UserUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * The filter to search for the User to update in case it exists.
+     * The filter to search for the BannerItem to update in case it exists.
      */
-    where: UserWhereUniqueInput
+    where: BannerItemWhereUniqueInput
     /**
-     * In case the User found by the `where` argument doesn't exist, create a new User with this data.
+     * In case the BannerItem found by the `where` argument doesn't exist, create a new BannerItem with this data.
      */
-    create: XOR<UserCreateInput, UserUncheckedCreateInput>
+    create: XOR<BannerItemCreateInput, BannerItemUncheckedCreateInput>
     /**
-     * In case the User was found with the provided `where` argument, update it with this data.
+     * In case the BannerItem was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<UserUpdateInput, UserUncheckedUpdateInput>
+    update: XOR<BannerItemUpdateInput, BannerItemUncheckedUpdateInput>
   }
 
   /**
-   * User delete
+   * BannerItem delete
    */
-  export type UserDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
     /**
-     * Filter which User to delete.
+     * Filter which BannerItem to delete.
      */
-    where: UserWhereUniqueInput
+    where: BannerItemWhereUniqueInput
   }
 
   /**
-   * User deleteMany
+   * BannerItem deleteMany
    */
-  export type UserDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Users to delete
+     * Filter which BannerItems to delete
      */
-    where?: UserWhereInput
+    where?: BannerItemWhereInput
     /**
-     * Limit how many Users to delete.
+     * Limit how many BannerItems to delete.
      */
     limit?: number
   }
 
   /**
-   * User without action
+   * BannerItem without action
    */
-  export type UserDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type BannerItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the User
+     * Select specific fields to fetch from the BannerItem
      */
-    select?: UserSelect<ExtArgs> | null
+    select?: BannerItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the User
+     * Omit specific fields from the BannerItem
      */
-    omit?: UserOmit<ExtArgs> | null
+    omit?: BannerItemOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MapItem
+   */
+
+  export type AggregateMapItem = {
+    _count: MapItemCountAggregateOutputType | null
+    _avg: MapItemAvgAggregateOutputType | null
+    _sum: MapItemSumAggregateOutputType | null
+    _min: MapItemMinAggregateOutputType | null
+    _max: MapItemMaxAggregateOutputType | null
+  }
+
+  export type MapItemAvgAggregateOutputType = {
+    id: number | null
+    x: number | null
+    y: number | null
+  }
+
+  export type MapItemSumAggregateOutputType = {
+    id: number | null
+    x: number | null
+    y: number | null
+  }
+
+  export type MapItemMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    x: number | null
+    y: number | null
+    description: string | null
+  }
+
+  export type MapItemMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    x: number | null
+    y: number | null
+    description: string | null
+  }
+
+  export type MapItemCountAggregateOutputType = {
+    id: number
+    name: number
+    x: number
+    y: number
+    description: number
+    _all: number
+  }
+
+
+  export type MapItemAvgAggregateInputType = {
+    id?: true
+    x?: true
+    y?: true
+  }
+
+  export type MapItemSumAggregateInputType = {
+    id?: true
+    x?: true
+    y?: true
+  }
+
+  export type MapItemMinAggregateInputType = {
+    id?: true
+    name?: true
+    x?: true
+    y?: true
+    description?: true
+  }
+
+  export type MapItemMaxAggregateInputType = {
+    id?: true
+    name?: true
+    x?: true
+    y?: true
+    description?: true
+  }
+
+  export type MapItemCountAggregateInputType = {
+    id?: true
+    name?: true
+    x?: true
+    y?: true
+    description?: true
+    _all?: true
+  }
+
+  export type MapItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MapItem to aggregate.
+     */
+    where?: MapItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MapItems to fetch.
+     */
+    orderBy?: MapItemOrderByWithRelationInput | MapItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MapItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MapItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MapItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MapItems
+    **/
+    _count?: true | MapItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: MapItemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: MapItemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MapItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MapItemMaxAggregateInputType
+  }
+
+  export type GetMapItemAggregateType<T extends MapItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateMapItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMapItem[P]>
+      : GetScalarType<T[P], AggregateMapItem[P]>
+  }
+
+
+
+
+  export type MapItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MapItemWhereInput
+    orderBy?: MapItemOrderByWithAggregationInput | MapItemOrderByWithAggregationInput[]
+    by: MapItemScalarFieldEnum[] | MapItemScalarFieldEnum
+    having?: MapItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MapItemCountAggregateInputType | true
+    _avg?: MapItemAvgAggregateInputType
+    _sum?: MapItemSumAggregateInputType
+    _min?: MapItemMinAggregateInputType
+    _max?: MapItemMaxAggregateInputType
+  }
+
+  export type MapItemGroupByOutputType = {
+    id: number
+    name: string
+    x: number
+    y: number
+    description: string
+    _count: MapItemCountAggregateOutputType | null
+    _avg: MapItemAvgAggregateOutputType | null
+    _sum: MapItemSumAggregateOutputType | null
+    _min: MapItemMinAggregateOutputType | null
+    _max: MapItemMaxAggregateOutputType | null
+  }
+
+  type GetMapItemGroupByPayload<T extends MapItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MapItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MapItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MapItemGroupByOutputType[P]>
+            : GetScalarType<T[P], MapItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MapItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    x?: boolean
+    y?: boolean
+    description?: boolean
+  }, ExtArgs["result"]["mapItem"]>
+
+  export type MapItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    x?: boolean
+    y?: boolean
+    description?: boolean
+  }, ExtArgs["result"]["mapItem"]>
+
+  export type MapItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    x?: boolean
+    y?: boolean
+    description?: boolean
+  }, ExtArgs["result"]["mapItem"]>
+
+  export type MapItemSelectScalar = {
+    id?: boolean
+    name?: boolean
+    x?: boolean
+    y?: boolean
+    description?: boolean
+  }
+
+  export type MapItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "x" | "y" | "description", ExtArgs["result"]["mapItem"]>
+
+  export type $MapItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MapItem"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      x: number
+      y: number
+      description: string
+    }, ExtArgs["result"]["mapItem"]>
+    composites: {}
+  }
+
+  type MapItemGetPayload<S extends boolean | null | undefined | MapItemDefaultArgs> = $Result.GetResult<Prisma.$MapItemPayload, S>
+
+  type MapItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MapItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MapItemCountAggregateInputType | true
+    }
+
+  export interface MapItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MapItem'], meta: { name: 'MapItem' } }
+    /**
+     * Find zero or one MapItem that matches the filter.
+     * @param {MapItemFindUniqueArgs} args - Arguments to find a MapItem
+     * @example
+     * // Get one MapItem
+     * const mapItem = await prisma.mapItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MapItemFindUniqueArgs>(args: SelectSubset<T, MapItemFindUniqueArgs<ExtArgs>>): Prisma__MapItemClient<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MapItem that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MapItemFindUniqueOrThrowArgs} args - Arguments to find a MapItem
+     * @example
+     * // Get one MapItem
+     * const mapItem = await prisma.mapItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MapItemFindUniqueOrThrowArgs>(args: SelectSubset<T, MapItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MapItemClient<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MapItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MapItemFindFirstArgs} args - Arguments to find a MapItem
+     * @example
+     * // Get one MapItem
+     * const mapItem = await prisma.mapItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MapItemFindFirstArgs>(args?: SelectSubset<T, MapItemFindFirstArgs<ExtArgs>>): Prisma__MapItemClient<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MapItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MapItemFindFirstOrThrowArgs} args - Arguments to find a MapItem
+     * @example
+     * // Get one MapItem
+     * const mapItem = await prisma.mapItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MapItemFindFirstOrThrowArgs>(args?: SelectSubset<T, MapItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__MapItemClient<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MapItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MapItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MapItems
+     * const mapItems = await prisma.mapItem.findMany()
+     * 
+     * // Get first 10 MapItems
+     * const mapItems = await prisma.mapItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mapItemWithIdOnly = await prisma.mapItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MapItemFindManyArgs>(args?: SelectSubset<T, MapItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MapItem.
+     * @param {MapItemCreateArgs} args - Arguments to create a MapItem.
+     * @example
+     * // Create one MapItem
+     * const MapItem = await prisma.mapItem.create({
+     *   data: {
+     *     // ... data to create a MapItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends MapItemCreateArgs>(args: SelectSubset<T, MapItemCreateArgs<ExtArgs>>): Prisma__MapItemClient<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MapItems.
+     * @param {MapItemCreateManyArgs} args - Arguments to create many MapItems.
+     * @example
+     * // Create many MapItems
+     * const mapItem = await prisma.mapItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MapItemCreateManyArgs>(args?: SelectSubset<T, MapItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MapItems and returns the data saved in the database.
+     * @param {MapItemCreateManyAndReturnArgs} args - Arguments to create many MapItems.
+     * @example
+     * // Create many MapItems
+     * const mapItem = await prisma.mapItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MapItems and only return the `id`
+     * const mapItemWithIdOnly = await prisma.mapItem.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MapItemCreateManyAndReturnArgs>(args?: SelectSubset<T, MapItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MapItem.
+     * @param {MapItemDeleteArgs} args - Arguments to delete one MapItem.
+     * @example
+     * // Delete one MapItem
+     * const MapItem = await prisma.mapItem.delete({
+     *   where: {
+     *     // ... filter to delete one MapItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MapItemDeleteArgs>(args: SelectSubset<T, MapItemDeleteArgs<ExtArgs>>): Prisma__MapItemClient<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MapItem.
+     * @param {MapItemUpdateArgs} args - Arguments to update one MapItem.
+     * @example
+     * // Update one MapItem
+     * const mapItem = await prisma.mapItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MapItemUpdateArgs>(args: SelectSubset<T, MapItemUpdateArgs<ExtArgs>>): Prisma__MapItemClient<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MapItems.
+     * @param {MapItemDeleteManyArgs} args - Arguments to filter MapItems to delete.
+     * @example
+     * // Delete a few MapItems
+     * const { count } = await prisma.mapItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MapItemDeleteManyArgs>(args?: SelectSubset<T, MapItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MapItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MapItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MapItems
+     * const mapItem = await prisma.mapItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MapItemUpdateManyArgs>(args: SelectSubset<T, MapItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MapItems and returns the data updated in the database.
+     * @param {MapItemUpdateManyAndReturnArgs} args - Arguments to update many MapItems.
+     * @example
+     * // Update many MapItems
+     * const mapItem = await prisma.mapItem.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MapItems and only return the `id`
+     * const mapItemWithIdOnly = await prisma.mapItem.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MapItemUpdateManyAndReturnArgs>(args: SelectSubset<T, MapItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MapItem.
+     * @param {MapItemUpsertArgs} args - Arguments to update or create a MapItem.
+     * @example
+     * // Update or create a MapItem
+     * const mapItem = await prisma.mapItem.upsert({
+     *   create: {
+     *     // ... data to create a MapItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MapItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MapItemUpsertArgs>(args: SelectSubset<T, MapItemUpsertArgs<ExtArgs>>): Prisma__MapItemClient<$Result.GetResult<Prisma.$MapItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MapItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MapItemCountArgs} args - Arguments to filter MapItems to count.
+     * @example
+     * // Count the number of MapItems
+     * const count = await prisma.mapItem.count({
+     *   where: {
+     *     // ... the filter for the MapItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends MapItemCountArgs>(
+      args?: Subset<T, MapItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MapItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MapItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MapItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MapItemAggregateArgs>(args: Subset<T, MapItemAggregateArgs>): Prisma.PrismaPromise<GetMapItemAggregateType<T>>
+
+    /**
+     * Group by MapItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MapItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MapItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MapItemGroupByArgs['orderBy'] }
+        : { orderBy?: MapItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MapItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMapItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MapItem model
+   */
+  readonly fields: MapItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MapItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MapItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MapItem model
+   */
+  interface MapItemFieldRefs {
+    readonly id: FieldRef<"MapItem", 'Int'>
+    readonly name: FieldRef<"MapItem", 'String'>
+    readonly x: FieldRef<"MapItem", 'Int'>
+    readonly y: FieldRef<"MapItem", 'Int'>
+    readonly description: FieldRef<"MapItem", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MapItem findUnique
+   */
+  export type MapItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * Filter, which MapItem to fetch.
+     */
+    where: MapItemWhereUniqueInput
+  }
+
+  /**
+   * MapItem findUniqueOrThrow
+   */
+  export type MapItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * Filter, which MapItem to fetch.
+     */
+    where: MapItemWhereUniqueInput
+  }
+
+  /**
+   * MapItem findFirst
+   */
+  export type MapItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * Filter, which MapItem to fetch.
+     */
+    where?: MapItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MapItems to fetch.
+     */
+    orderBy?: MapItemOrderByWithRelationInput | MapItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MapItems.
+     */
+    cursor?: MapItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MapItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MapItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MapItems.
+     */
+    distinct?: MapItemScalarFieldEnum | MapItemScalarFieldEnum[]
+  }
+
+  /**
+   * MapItem findFirstOrThrow
+   */
+  export type MapItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * Filter, which MapItem to fetch.
+     */
+    where?: MapItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MapItems to fetch.
+     */
+    orderBy?: MapItemOrderByWithRelationInput | MapItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MapItems.
+     */
+    cursor?: MapItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MapItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MapItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MapItems.
+     */
+    distinct?: MapItemScalarFieldEnum | MapItemScalarFieldEnum[]
+  }
+
+  /**
+   * MapItem findMany
+   */
+  export type MapItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * Filter, which MapItems to fetch.
+     */
+    where?: MapItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MapItems to fetch.
+     */
+    orderBy?: MapItemOrderByWithRelationInput | MapItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MapItems.
+     */
+    cursor?: MapItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MapItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MapItems.
+     */
+    skip?: number
+    distinct?: MapItemScalarFieldEnum | MapItemScalarFieldEnum[]
+  }
+
+  /**
+   * MapItem create
+   */
+  export type MapItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * The data needed to create a MapItem.
+     */
+    data: XOR<MapItemCreateInput, MapItemUncheckedCreateInput>
+  }
+
+  /**
+   * MapItem createMany
+   */
+  export type MapItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MapItems.
+     */
+    data: MapItemCreateManyInput | MapItemCreateManyInput[]
+  }
+
+  /**
+   * MapItem createManyAndReturn
+   */
+  export type MapItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * The data used to create many MapItems.
+     */
+    data: MapItemCreateManyInput | MapItemCreateManyInput[]
+  }
+
+  /**
+   * MapItem update
+   */
+  export type MapItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * The data needed to update a MapItem.
+     */
+    data: XOR<MapItemUpdateInput, MapItemUncheckedUpdateInput>
+    /**
+     * Choose, which MapItem to update.
+     */
+    where: MapItemWhereUniqueInput
+  }
+
+  /**
+   * MapItem updateMany
+   */
+  export type MapItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MapItems.
+     */
+    data: XOR<MapItemUpdateManyMutationInput, MapItemUncheckedUpdateManyInput>
+    /**
+     * Filter which MapItems to update
+     */
+    where?: MapItemWhereInput
+    /**
+     * Limit how many MapItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MapItem updateManyAndReturn
+   */
+  export type MapItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * The data used to update MapItems.
+     */
+    data: XOR<MapItemUpdateManyMutationInput, MapItemUncheckedUpdateManyInput>
+    /**
+     * Filter which MapItems to update
+     */
+    where?: MapItemWhereInput
+    /**
+     * Limit how many MapItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MapItem upsert
+   */
+  export type MapItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * The filter to search for the MapItem to update in case it exists.
+     */
+    where: MapItemWhereUniqueInput
+    /**
+     * In case the MapItem found by the `where` argument doesn't exist, create a new MapItem with this data.
+     */
+    create: XOR<MapItemCreateInput, MapItemUncheckedCreateInput>
+    /**
+     * In case the MapItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MapItemUpdateInput, MapItemUncheckedUpdateInput>
+  }
+
+  /**
+   * MapItem delete
+   */
+  export type MapItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+    /**
+     * Filter which MapItem to delete.
+     */
+    where: MapItemWhereUniqueInput
+  }
+
+  /**
+   * MapItem deleteMany
+   */
+  export type MapItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MapItems to delete
+     */
+    where?: MapItemWhereInput
+    /**
+     * Limit how many MapItems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MapItem without action
+   */
+  export type MapItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MapItem
+     */
+    select?: MapItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MapItem
+     */
+    omit?: MapItemOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ExhibitionItem
+   */
+
+  export type AggregateExhibitionItem = {
+    _count: ExhibitionItemCountAggregateOutputType | null
+    _avg: ExhibitionItemAvgAggregateOutputType | null
+    _sum: ExhibitionItemSumAggregateOutputType | null
+    _min: ExhibitionItemMinAggregateOutputType | null
+    _max: ExhibitionItemMaxAggregateOutputType | null
+  }
+
+  export type ExhibitionItemAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ExhibitionItemSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type ExhibitionItemMinAggregateOutputType = {
+    id: number | null
+    title: string | null
+    description: string | null
+    date: Date | null
+    imageUrl: string | null
+  }
+
+  export type ExhibitionItemMaxAggregateOutputType = {
+    id: number | null
+    title: string | null
+    description: string | null
+    date: Date | null
+    imageUrl: string | null
+  }
+
+  export type ExhibitionItemCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    date: number
+    imageUrl: number
+    _all: number
+  }
+
+
+  export type ExhibitionItemAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type ExhibitionItemSumAggregateInputType = {
+    id?: true
+  }
+
+  export type ExhibitionItemMinAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    date?: true
+    imageUrl?: true
+  }
+
+  export type ExhibitionItemMaxAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    date?: true
+    imageUrl?: true
+  }
+
+  export type ExhibitionItemCountAggregateInputType = {
+    id?: true
+    title?: true
+    description?: true
+    date?: true
+    imageUrl?: true
+    _all?: true
+  }
+
+  export type ExhibitionItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ExhibitionItem to aggregate.
+     */
+    where?: ExhibitionItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ExhibitionItems to fetch.
+     */
+    orderBy?: ExhibitionItemOrderByWithRelationInput | ExhibitionItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ExhibitionItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ExhibitionItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ExhibitionItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ExhibitionItems
+    **/
+    _count?: true | ExhibitionItemCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ExhibitionItemAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ExhibitionItemSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ExhibitionItemMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ExhibitionItemMaxAggregateInputType
+  }
+
+  export type GetExhibitionItemAggregateType<T extends ExhibitionItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateExhibitionItem]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateExhibitionItem[P]>
+      : GetScalarType<T[P], AggregateExhibitionItem[P]>
+  }
+
+
+
+
+  export type ExhibitionItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ExhibitionItemWhereInput
+    orderBy?: ExhibitionItemOrderByWithAggregationInput | ExhibitionItemOrderByWithAggregationInput[]
+    by: ExhibitionItemScalarFieldEnum[] | ExhibitionItemScalarFieldEnum
+    having?: ExhibitionItemScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ExhibitionItemCountAggregateInputType | true
+    _avg?: ExhibitionItemAvgAggregateInputType
+    _sum?: ExhibitionItemSumAggregateInputType
+    _min?: ExhibitionItemMinAggregateInputType
+    _max?: ExhibitionItemMaxAggregateInputType
+  }
+
+  export type ExhibitionItemGroupByOutputType = {
+    id: number
+    title: string
+    description: string
+    date: Date | null
+    imageUrl: string
+    _count: ExhibitionItemCountAggregateOutputType | null
+    _avg: ExhibitionItemAvgAggregateOutputType | null
+    _sum: ExhibitionItemSumAggregateOutputType | null
+    _min: ExhibitionItemMinAggregateOutputType | null
+    _max: ExhibitionItemMaxAggregateOutputType | null
+  }
+
+  type GetExhibitionItemGroupByPayload<T extends ExhibitionItemGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ExhibitionItemGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ExhibitionItemGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ExhibitionItemGroupByOutputType[P]>
+            : GetScalarType<T[P], ExhibitionItemGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ExhibitionItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    date?: boolean
+    imageUrl?: boolean
+  }, ExtArgs["result"]["exhibitionItem"]>
+
+  export type ExhibitionItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    date?: boolean
+    imageUrl?: boolean
+  }, ExtArgs["result"]["exhibitionItem"]>
+
+  export type ExhibitionItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    date?: boolean
+    imageUrl?: boolean
+  }, ExtArgs["result"]["exhibitionItem"]>
+
+  export type ExhibitionItemSelectScalar = {
+    id?: boolean
+    title?: boolean
+    description?: boolean
+    date?: boolean
+    imageUrl?: boolean
+  }
+
+  export type ExhibitionItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "date" | "imageUrl", ExtArgs["result"]["exhibitionItem"]>
+
+  export type $ExhibitionItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ExhibitionItem"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      title: string
+      description: string
+      date: Date | null
+      imageUrl: string
+    }, ExtArgs["result"]["exhibitionItem"]>
+    composites: {}
+  }
+
+  type ExhibitionItemGetPayload<S extends boolean | null | undefined | ExhibitionItemDefaultArgs> = $Result.GetResult<Prisma.$ExhibitionItemPayload, S>
+
+  type ExhibitionItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ExhibitionItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ExhibitionItemCountAggregateInputType | true
+    }
+
+  export interface ExhibitionItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ExhibitionItem'], meta: { name: 'ExhibitionItem' } }
+    /**
+     * Find zero or one ExhibitionItem that matches the filter.
+     * @param {ExhibitionItemFindUniqueArgs} args - Arguments to find a ExhibitionItem
+     * @example
+     * // Get one ExhibitionItem
+     * const exhibitionItem = await prisma.exhibitionItem.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ExhibitionItemFindUniqueArgs>(args: SelectSubset<T, ExhibitionItemFindUniqueArgs<ExtArgs>>): Prisma__ExhibitionItemClient<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ExhibitionItem that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ExhibitionItemFindUniqueOrThrowArgs} args - Arguments to find a ExhibitionItem
+     * @example
+     * // Get one ExhibitionItem
+     * const exhibitionItem = await prisma.exhibitionItem.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ExhibitionItemFindUniqueOrThrowArgs>(args: SelectSubset<T, ExhibitionItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ExhibitionItemClient<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ExhibitionItem that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExhibitionItemFindFirstArgs} args - Arguments to find a ExhibitionItem
+     * @example
+     * // Get one ExhibitionItem
+     * const exhibitionItem = await prisma.exhibitionItem.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ExhibitionItemFindFirstArgs>(args?: SelectSubset<T, ExhibitionItemFindFirstArgs<ExtArgs>>): Prisma__ExhibitionItemClient<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ExhibitionItem that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExhibitionItemFindFirstOrThrowArgs} args - Arguments to find a ExhibitionItem
+     * @example
+     * // Get one ExhibitionItem
+     * const exhibitionItem = await prisma.exhibitionItem.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ExhibitionItemFindFirstOrThrowArgs>(args?: SelectSubset<T, ExhibitionItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__ExhibitionItemClient<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ExhibitionItems that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExhibitionItemFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ExhibitionItems
+     * const exhibitionItems = await prisma.exhibitionItem.findMany()
+     * 
+     * // Get first 10 ExhibitionItems
+     * const exhibitionItems = await prisma.exhibitionItem.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const exhibitionItemWithIdOnly = await prisma.exhibitionItem.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ExhibitionItemFindManyArgs>(args?: SelectSubset<T, ExhibitionItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ExhibitionItem.
+     * @param {ExhibitionItemCreateArgs} args - Arguments to create a ExhibitionItem.
+     * @example
+     * // Create one ExhibitionItem
+     * const ExhibitionItem = await prisma.exhibitionItem.create({
+     *   data: {
+     *     // ... data to create a ExhibitionItem
+     *   }
+     * })
+     * 
+     */
+    create<T extends ExhibitionItemCreateArgs>(args: SelectSubset<T, ExhibitionItemCreateArgs<ExtArgs>>): Prisma__ExhibitionItemClient<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ExhibitionItems.
+     * @param {ExhibitionItemCreateManyArgs} args - Arguments to create many ExhibitionItems.
+     * @example
+     * // Create many ExhibitionItems
+     * const exhibitionItem = await prisma.exhibitionItem.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ExhibitionItemCreateManyArgs>(args?: SelectSubset<T, ExhibitionItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ExhibitionItems and returns the data saved in the database.
+     * @param {ExhibitionItemCreateManyAndReturnArgs} args - Arguments to create many ExhibitionItems.
+     * @example
+     * // Create many ExhibitionItems
+     * const exhibitionItem = await prisma.exhibitionItem.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ExhibitionItems and only return the `id`
+     * const exhibitionItemWithIdOnly = await prisma.exhibitionItem.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ExhibitionItemCreateManyAndReturnArgs>(args?: SelectSubset<T, ExhibitionItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ExhibitionItem.
+     * @param {ExhibitionItemDeleteArgs} args - Arguments to delete one ExhibitionItem.
+     * @example
+     * // Delete one ExhibitionItem
+     * const ExhibitionItem = await prisma.exhibitionItem.delete({
+     *   where: {
+     *     // ... filter to delete one ExhibitionItem
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ExhibitionItemDeleteArgs>(args: SelectSubset<T, ExhibitionItemDeleteArgs<ExtArgs>>): Prisma__ExhibitionItemClient<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ExhibitionItem.
+     * @param {ExhibitionItemUpdateArgs} args - Arguments to update one ExhibitionItem.
+     * @example
+     * // Update one ExhibitionItem
+     * const exhibitionItem = await prisma.exhibitionItem.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ExhibitionItemUpdateArgs>(args: SelectSubset<T, ExhibitionItemUpdateArgs<ExtArgs>>): Prisma__ExhibitionItemClient<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ExhibitionItems.
+     * @param {ExhibitionItemDeleteManyArgs} args - Arguments to filter ExhibitionItems to delete.
+     * @example
+     * // Delete a few ExhibitionItems
+     * const { count } = await prisma.exhibitionItem.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ExhibitionItemDeleteManyArgs>(args?: SelectSubset<T, ExhibitionItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ExhibitionItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExhibitionItemUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ExhibitionItems
+     * const exhibitionItem = await prisma.exhibitionItem.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ExhibitionItemUpdateManyArgs>(args: SelectSubset<T, ExhibitionItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ExhibitionItems and returns the data updated in the database.
+     * @param {ExhibitionItemUpdateManyAndReturnArgs} args - Arguments to update many ExhibitionItems.
+     * @example
+     * // Update many ExhibitionItems
+     * const exhibitionItem = await prisma.exhibitionItem.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ExhibitionItems and only return the `id`
+     * const exhibitionItemWithIdOnly = await prisma.exhibitionItem.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ExhibitionItemUpdateManyAndReturnArgs>(args: SelectSubset<T, ExhibitionItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ExhibitionItem.
+     * @param {ExhibitionItemUpsertArgs} args - Arguments to update or create a ExhibitionItem.
+     * @example
+     * // Update or create a ExhibitionItem
+     * const exhibitionItem = await prisma.exhibitionItem.upsert({
+     *   create: {
+     *     // ... data to create a ExhibitionItem
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ExhibitionItem we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ExhibitionItemUpsertArgs>(args: SelectSubset<T, ExhibitionItemUpsertArgs<ExtArgs>>): Prisma__ExhibitionItemClient<$Result.GetResult<Prisma.$ExhibitionItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ExhibitionItems.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExhibitionItemCountArgs} args - Arguments to filter ExhibitionItems to count.
+     * @example
+     * // Count the number of ExhibitionItems
+     * const count = await prisma.exhibitionItem.count({
+     *   where: {
+     *     // ... the filter for the ExhibitionItems we want to count
+     *   }
+     * })
+    **/
+    count<T extends ExhibitionItemCountArgs>(
+      args?: Subset<T, ExhibitionItemCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ExhibitionItemCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ExhibitionItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExhibitionItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ExhibitionItemAggregateArgs>(args: Subset<T, ExhibitionItemAggregateArgs>): Prisma.PrismaPromise<GetExhibitionItemAggregateType<T>>
+
+    /**
+     * Group by ExhibitionItem.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ExhibitionItemGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ExhibitionItemGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ExhibitionItemGroupByArgs['orderBy'] }
+        : { orderBy?: ExhibitionItemGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ExhibitionItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetExhibitionItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ExhibitionItem model
+   */
+  readonly fields: ExhibitionItemFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ExhibitionItem.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ExhibitionItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ExhibitionItem model
+   */
+  interface ExhibitionItemFieldRefs {
+    readonly id: FieldRef<"ExhibitionItem", 'Int'>
+    readonly title: FieldRef<"ExhibitionItem", 'String'>
+    readonly description: FieldRef<"ExhibitionItem", 'String'>
+    readonly date: FieldRef<"ExhibitionItem", 'DateTime'>
+    readonly imageUrl: FieldRef<"ExhibitionItem", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ExhibitionItem findUnique
+   */
+  export type ExhibitionItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * Filter, which ExhibitionItem to fetch.
+     */
+    where: ExhibitionItemWhereUniqueInput
+  }
+
+  /**
+   * ExhibitionItem findUniqueOrThrow
+   */
+  export type ExhibitionItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * Filter, which ExhibitionItem to fetch.
+     */
+    where: ExhibitionItemWhereUniqueInput
+  }
+
+  /**
+   * ExhibitionItem findFirst
+   */
+  export type ExhibitionItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * Filter, which ExhibitionItem to fetch.
+     */
+    where?: ExhibitionItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ExhibitionItems to fetch.
+     */
+    orderBy?: ExhibitionItemOrderByWithRelationInput | ExhibitionItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ExhibitionItems.
+     */
+    cursor?: ExhibitionItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ExhibitionItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ExhibitionItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ExhibitionItems.
+     */
+    distinct?: ExhibitionItemScalarFieldEnum | ExhibitionItemScalarFieldEnum[]
+  }
+
+  /**
+   * ExhibitionItem findFirstOrThrow
+   */
+  export type ExhibitionItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * Filter, which ExhibitionItem to fetch.
+     */
+    where?: ExhibitionItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ExhibitionItems to fetch.
+     */
+    orderBy?: ExhibitionItemOrderByWithRelationInput | ExhibitionItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ExhibitionItems.
+     */
+    cursor?: ExhibitionItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ExhibitionItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ExhibitionItems.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ExhibitionItems.
+     */
+    distinct?: ExhibitionItemScalarFieldEnum | ExhibitionItemScalarFieldEnum[]
+  }
+
+  /**
+   * ExhibitionItem findMany
+   */
+  export type ExhibitionItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * Filter, which ExhibitionItems to fetch.
+     */
+    where?: ExhibitionItemWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ExhibitionItems to fetch.
+     */
+    orderBy?: ExhibitionItemOrderByWithRelationInput | ExhibitionItemOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ExhibitionItems.
+     */
+    cursor?: ExhibitionItemWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ExhibitionItems from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ExhibitionItems.
+     */
+    skip?: number
+    distinct?: ExhibitionItemScalarFieldEnum | ExhibitionItemScalarFieldEnum[]
+  }
+
+  /**
+   * ExhibitionItem create
+   */
+  export type ExhibitionItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * The data needed to create a ExhibitionItem.
+     */
+    data: XOR<ExhibitionItemCreateInput, ExhibitionItemUncheckedCreateInput>
+  }
+
+  /**
+   * ExhibitionItem createMany
+   */
+  export type ExhibitionItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ExhibitionItems.
+     */
+    data: ExhibitionItemCreateManyInput | ExhibitionItemCreateManyInput[]
+  }
+
+  /**
+   * ExhibitionItem createManyAndReturn
+   */
+  export type ExhibitionItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * The data used to create many ExhibitionItems.
+     */
+    data: ExhibitionItemCreateManyInput | ExhibitionItemCreateManyInput[]
+  }
+
+  /**
+   * ExhibitionItem update
+   */
+  export type ExhibitionItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * The data needed to update a ExhibitionItem.
+     */
+    data: XOR<ExhibitionItemUpdateInput, ExhibitionItemUncheckedUpdateInput>
+    /**
+     * Choose, which ExhibitionItem to update.
+     */
+    where: ExhibitionItemWhereUniqueInput
+  }
+
+  /**
+   * ExhibitionItem updateMany
+   */
+  export type ExhibitionItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ExhibitionItems.
+     */
+    data: XOR<ExhibitionItemUpdateManyMutationInput, ExhibitionItemUncheckedUpdateManyInput>
+    /**
+     * Filter which ExhibitionItems to update
+     */
+    where?: ExhibitionItemWhereInput
+    /**
+     * Limit how many ExhibitionItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ExhibitionItem updateManyAndReturn
+   */
+  export type ExhibitionItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * The data used to update ExhibitionItems.
+     */
+    data: XOR<ExhibitionItemUpdateManyMutationInput, ExhibitionItemUncheckedUpdateManyInput>
+    /**
+     * Filter which ExhibitionItems to update
+     */
+    where?: ExhibitionItemWhereInput
+    /**
+     * Limit how many ExhibitionItems to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ExhibitionItem upsert
+   */
+  export type ExhibitionItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * The filter to search for the ExhibitionItem to update in case it exists.
+     */
+    where: ExhibitionItemWhereUniqueInput
+    /**
+     * In case the ExhibitionItem found by the `where` argument doesn't exist, create a new ExhibitionItem with this data.
+     */
+    create: XOR<ExhibitionItemCreateInput, ExhibitionItemUncheckedCreateInput>
+    /**
+     * In case the ExhibitionItem was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ExhibitionItemUpdateInput, ExhibitionItemUncheckedUpdateInput>
+  }
+
+  /**
+   * ExhibitionItem delete
+   */
+  export type ExhibitionItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
+    /**
+     * Filter which ExhibitionItem to delete.
+     */
+    where: ExhibitionItemWhereUniqueInput
+  }
+
+  /**
+   * ExhibitionItem deleteMany
+   */
+  export type ExhibitionItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ExhibitionItems to delete
+     */
+    where?: ExhibitionItemWhereInput
+    /**
+     * Limit how many ExhibitionItems to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ExhibitionItem without action
+   */
+  export type ExhibitionItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ExhibitionItem
+     */
+    select?: ExhibitionItemSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ExhibitionItem
+     */
+    omit?: ExhibitionItemOmit<ExtArgs> | null
   }
 
 
@@ -1881,13 +4112,34 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const UserScalarFieldEnum: {
+  export const BannerItemScalarFieldEnum: {
     id: 'id',
-    email: 'email',
-    name: 'name'
+    imageUrl: 'imageUrl'
   };
 
-  export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
+  export type BannerItemScalarFieldEnum = (typeof BannerItemScalarFieldEnum)[keyof typeof BannerItemScalarFieldEnum]
+
+
+  export const MapItemScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    x: 'x',
+    y: 'y',
+    description: 'description'
+  };
+
+  export type MapItemScalarFieldEnum = (typeof MapItemScalarFieldEnum)[keyof typeof MapItemScalarFieldEnum]
+
+
+  export const ExhibitionItemScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    date: 'date',
+    imageUrl: 'imageUrl'
+  };
+
+  export type ExhibitionItemScalarFieldEnum = (typeof ExhibitionItemScalarFieldEnum)[keyof typeof ExhibitionItemScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -1926,6 +4178,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -1935,87 +4194,289 @@ export namespace Prisma {
    */
 
 
-  export type UserWhereInput = {
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    id?: IntFilter<"User"> | number
-    email?: StringFilter<"User"> | string
-    name?: StringNullableFilter<"User"> | string | null
+  export type BannerItemWhereInput = {
+    AND?: BannerItemWhereInput | BannerItemWhereInput[]
+    OR?: BannerItemWhereInput[]
+    NOT?: BannerItemWhereInput | BannerItemWhereInput[]
+    id?: IntFilter<"BannerItem"> | number
+    imageUrl?: StringFilter<"BannerItem"> | string
   }
 
-  export type UserOrderByWithRelationInput = {
+  export type BannerItemOrderByWithRelationInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrderInput | SortOrder
+    imageUrl?: SortOrder
   }
 
-  export type UserWhereUniqueInput = Prisma.AtLeast<{
+  export type BannerItemWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    email?: string
-    AND?: UserWhereInput | UserWhereInput[]
-    OR?: UserWhereInput[]
-    NOT?: UserWhereInput | UserWhereInput[]
-    name?: StringNullableFilter<"User"> | string | null
-  }, "id" | "email">
+    AND?: BannerItemWhereInput | BannerItemWhereInput[]
+    OR?: BannerItemWhereInput[]
+    NOT?: BannerItemWhereInput | BannerItemWhereInput[]
+    imageUrl?: StringFilter<"BannerItem"> | string
+  }, "id">
 
-  export type UserOrderByWithAggregationInput = {
+  export type BannerItemOrderByWithAggregationInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrderInput | SortOrder
-    _count?: UserCountOrderByAggregateInput
-    _avg?: UserAvgOrderByAggregateInput
-    _max?: UserMaxOrderByAggregateInput
-    _min?: UserMinOrderByAggregateInput
-    _sum?: UserSumOrderByAggregateInput
+    imageUrl?: SortOrder
+    _count?: BannerItemCountOrderByAggregateInput
+    _avg?: BannerItemAvgOrderByAggregateInput
+    _max?: BannerItemMaxOrderByAggregateInput
+    _min?: BannerItemMinOrderByAggregateInput
+    _sum?: BannerItemSumOrderByAggregateInput
   }
 
-  export type UserScalarWhereWithAggregatesInput = {
-    AND?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    OR?: UserScalarWhereWithAggregatesInput[]
-    NOT?: UserScalarWhereWithAggregatesInput | UserScalarWhereWithAggregatesInput[]
-    id?: IntWithAggregatesFilter<"User"> | number
-    email?: StringWithAggregatesFilter<"User"> | string
-    name?: StringNullableWithAggregatesFilter<"User"> | string | null
+  export type BannerItemScalarWhereWithAggregatesInput = {
+    AND?: BannerItemScalarWhereWithAggregatesInput | BannerItemScalarWhereWithAggregatesInput[]
+    OR?: BannerItemScalarWhereWithAggregatesInput[]
+    NOT?: BannerItemScalarWhereWithAggregatesInput | BannerItemScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"BannerItem"> | number
+    imageUrl?: StringWithAggregatesFilter<"BannerItem"> | string
   }
 
-  export type UserCreateInput = {
-    email: string
-    name?: string | null
+  export type MapItemWhereInput = {
+    AND?: MapItemWhereInput | MapItemWhereInput[]
+    OR?: MapItemWhereInput[]
+    NOT?: MapItemWhereInput | MapItemWhereInput[]
+    id?: IntFilter<"MapItem"> | number
+    name?: StringFilter<"MapItem"> | string
+    x?: IntFilter<"MapItem"> | number
+    y?: IntFilter<"MapItem"> | number
+    description?: StringFilter<"MapItem"> | string
   }
 
-  export type UserUncheckedCreateInput = {
+  export type MapItemOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    description?: SortOrder
+  }
+
+  export type MapItemWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    email: string
-    name?: string | null
+    AND?: MapItemWhereInput | MapItemWhereInput[]
+    OR?: MapItemWhereInput[]
+    NOT?: MapItemWhereInput | MapItemWhereInput[]
+    name?: StringFilter<"MapItem"> | string
+    x?: IntFilter<"MapItem"> | number
+    y?: IntFilter<"MapItem"> | number
+    description?: StringFilter<"MapItem"> | string
+  }, "id">
+
+  export type MapItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    description?: SortOrder
+    _count?: MapItemCountOrderByAggregateInput
+    _avg?: MapItemAvgOrderByAggregateInput
+    _max?: MapItemMaxOrderByAggregateInput
+    _min?: MapItemMinOrderByAggregateInput
+    _sum?: MapItemSumOrderByAggregateInput
   }
 
-  export type UserUpdateInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+  export type MapItemScalarWhereWithAggregatesInput = {
+    AND?: MapItemScalarWhereWithAggregatesInput | MapItemScalarWhereWithAggregatesInput[]
+    OR?: MapItemScalarWhereWithAggregatesInput[]
+    NOT?: MapItemScalarWhereWithAggregatesInput | MapItemScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"MapItem"> | number
+    name?: StringWithAggregatesFilter<"MapItem"> | string
+    x?: IntWithAggregatesFilter<"MapItem"> | number
+    y?: IntWithAggregatesFilter<"MapItem"> | number
+    description?: StringWithAggregatesFilter<"MapItem"> | string
   }
 
-  export type UserUncheckedUpdateInput = {
-    id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+  export type ExhibitionItemWhereInput = {
+    AND?: ExhibitionItemWhereInput | ExhibitionItemWhereInput[]
+    OR?: ExhibitionItemWhereInput[]
+    NOT?: ExhibitionItemWhereInput | ExhibitionItemWhereInput[]
+    id?: IntFilter<"ExhibitionItem"> | number
+    title?: StringFilter<"ExhibitionItem"> | string
+    description?: StringFilter<"ExhibitionItem"> | string
+    date?: DateTimeNullableFilter<"ExhibitionItem"> | Date | string | null
+    imageUrl?: StringFilter<"ExhibitionItem"> | string
   }
 
-  export type UserCreateManyInput = {
+  export type ExhibitionItemOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    date?: SortOrderInput | SortOrder
+    imageUrl?: SortOrder
+  }
+
+  export type ExhibitionItemWhereUniqueInput = Prisma.AtLeast<{
     id?: number
-    email: string
-    name?: string | null
+    AND?: ExhibitionItemWhereInput | ExhibitionItemWhereInput[]
+    OR?: ExhibitionItemWhereInput[]
+    NOT?: ExhibitionItemWhereInput | ExhibitionItemWhereInput[]
+    title?: StringFilter<"ExhibitionItem"> | string
+    description?: StringFilter<"ExhibitionItem"> | string
+    date?: DateTimeNullableFilter<"ExhibitionItem"> | Date | string | null
+    imageUrl?: StringFilter<"ExhibitionItem"> | string
+  }, "id">
+
+  export type ExhibitionItemOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    date?: SortOrderInput | SortOrder
+    imageUrl?: SortOrder
+    _count?: ExhibitionItemCountOrderByAggregateInput
+    _avg?: ExhibitionItemAvgOrderByAggregateInput
+    _max?: ExhibitionItemMaxOrderByAggregateInput
+    _min?: ExhibitionItemMinOrderByAggregateInput
+    _sum?: ExhibitionItemSumOrderByAggregateInput
   }
 
-  export type UserUpdateManyMutationInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+  export type ExhibitionItemScalarWhereWithAggregatesInput = {
+    AND?: ExhibitionItemScalarWhereWithAggregatesInput | ExhibitionItemScalarWhereWithAggregatesInput[]
+    OR?: ExhibitionItemScalarWhereWithAggregatesInput[]
+    NOT?: ExhibitionItemScalarWhereWithAggregatesInput | ExhibitionItemScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ExhibitionItem"> | number
+    title?: StringWithAggregatesFilter<"ExhibitionItem"> | string
+    description?: StringWithAggregatesFilter<"ExhibitionItem"> | string
+    date?: DateTimeNullableWithAggregatesFilter<"ExhibitionItem"> | Date | string | null
+    imageUrl?: StringWithAggregatesFilter<"ExhibitionItem"> | string
   }
 
-  export type UserUncheckedUpdateManyInput = {
+  export type BannerItemCreateInput = {
+    imageUrl: string
+  }
+
+  export type BannerItemUncheckedCreateInput = {
+    id?: number
+    imageUrl: string
+  }
+
+  export type BannerItemUpdateInput = {
+    imageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BannerItemUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    imageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BannerItemCreateManyInput = {
+    id?: number
+    imageUrl: string
+  }
+
+  export type BannerItemUpdateManyMutationInput = {
+    imageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type BannerItemUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    imageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MapItemCreateInput = {
+    name: string
+    x: number
+    y: number
+    description: string
+  }
+
+  export type MapItemUncheckedCreateInput = {
+    id?: number
+    name: string
+    x: number
+    y: number
+    description: string
+  }
+
+  export type MapItemUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    x?: IntFieldUpdateOperationsInput | number
+    y?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MapItemUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: IntFieldUpdateOperationsInput | number
+    y?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MapItemCreateManyInput = {
+    id?: number
+    name: string
+    x: number
+    y: number
+    description: string
+  }
+
+  export type MapItemUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    x?: IntFieldUpdateOperationsInput | number
+    y?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type MapItemUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    x?: IntFieldUpdateOperationsInput | number
+    y?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ExhibitionItemCreateInput = {
+    title: string
+    description: string
+    date?: Date | string | null
+    imageUrl: string
+  }
+
+  export type ExhibitionItemUncheckedCreateInput = {
+    id?: number
+    title: string
+    description: string
+    date?: Date | string | null
+    imageUrl: string
+  }
+
+  export type ExhibitionItemUpdateInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    imageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ExhibitionItemUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    imageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ExhibitionItemCreateManyInput = {
+    id?: number
+    title: string
+    description: string
+    date?: Date | string | null
+    imageUrl: string
+  }
+
+  export type ExhibitionItemUpdateManyMutationInput = {
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    imageUrl?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type ExhibitionItemUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    title?: StringFieldUpdateOperationsInput | string
+    description?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    imageUrl?: StringFieldUpdateOperationsInput | string
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -2043,48 +4504,26 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
-  }
-
-  export type UserCountOrderByAggregateInput = {
+  export type BannerItemCountOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrder
+    imageUrl?: SortOrder
   }
 
-  export type UserAvgOrderByAggregateInput = {
+  export type BannerItemAvgOrderByAggregateInput = {
     id?: SortOrder
   }
 
-  export type UserMaxOrderByAggregateInput = {
+  export type BannerItemMaxOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrder
+    imageUrl?: SortOrder
   }
 
-  export type UserMinOrderByAggregateInput = {
+  export type BannerItemMinOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrder
+    imageUrl?: SortOrder
   }
 
-  export type UserSumOrderByAggregateInput = {
+  export type BannerItemSumOrderByAggregateInput = {
     id?: SortOrder
   }
 
@@ -2121,29 +4560,106 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+  export type MapItemCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    description?: SortOrder
+  }
+
+  export type MapItemAvgOrderByAggregateInput = {
+    id?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+  }
+
+  export type MapItemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    description?: SortOrder
+  }
+
+  export type MapItemMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+    description?: SortOrder
+  }
+
+  export type MapItemSumOrderByAggregateInput = {
+    id?: SortOrder
+    x?: SortOrder
+    y?: SortOrder
+  }
+
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
+  export type ExhibitionItemCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    date?: SortOrder
+    imageUrl?: SortOrder
+  }
+
+  export type ExhibitionItemAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type ExhibitionItemMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    date?: SortOrder
+    imageUrl?: SortOrder
+  }
+
+  export type ExhibitionItemMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    date?: SortOrder
+    imageUrl?: SortOrder
+  }
+
+  export type ExhibitionItemSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
-  }
-
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -2152,6 +4668,10 @@ export namespace Prisma {
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -2177,20 +4697,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -2237,21 +4743,29 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | null
-    notIn?: string[] | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type NestedIntNullableFilter<$PrismaModel = never> = {
