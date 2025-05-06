@@ -1,10 +1,12 @@
 import express, { Express, Request, Response } from "express";
-import { prisma } from "./prisma";
+import bannerItemRouter from "./routes/bannerItem";
 
 const app: Express = express();
 const port = 4000;
 
-app.get("/", (req: Request, res: Response) => {
+app.use("/bannerItem", bannerItemRouter);
+
+app.use("/", (req: Request, res: Response) => {
   res.send("OK");
 });
 
