@@ -1,12 +1,12 @@
 import { Request, Response, Router } from "express";
 import { prisma } from "../prisma";
-import { BannerItemData } from "../types";
+import { MapItemData } from "../types";
 
 const router = Router();
 
 router.get("/", async (req: Request, res: Response) => {
   try {
-    const users = await prisma.bannerItem.findMany();
+    const users = await prisma.mapItem.findMany();
 
     res.send(users);
   } catch (e) {
@@ -16,13 +16,16 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.post(
   "/",
-  async (req: Request<{}, {}, BannerItemData>, res: Response) => {
+  async (req: Request<{}, {}, MapItemData>, res: Response) => {
     try {
-      const { imageUrl } = req.body;
+      const { name, x, y, description } = req.body;
 
-      const user = await prisma.bannerItem.create({
+      const user = await prisma.mapItem.create({
         data: {
-          imageUrl,
+          name,
+          x,
+          y,
+          description,
         },
       });
 
@@ -35,14 +38,17 @@ router.post(
 
 router.put("/", async (req: Request, res: Response) => {
   try{
-    const { imageUrl, id } = req.body;
+    const { name, id, x, y, description } = req.body;
 
-    const updateUser = await prisma.bannerItem.update({
+    const updateUser = await prisma.mapItem.update({
       where: {
         id,
       },
       data: {
-        imageUrl,
+        name,
+        x,
+        y,
+        description,
       },
     })
 
@@ -55,12 +61,15 @@ router.put("/", async (req: Request, res: Response) => {
 
 router.delete("/", async (req: Request, res: Response) => {
   try{
-    const { imageUrl, id } = req.body;
+    const { name, id, x, y, description } = req.body;
 
-    const deleteUser = await prisma.bannerItem.delete({
+    const deleteUser = await prisma.mapItem.delete({
       where:{
         id,
-        imageUrl,
+        name,
+        x,
+        y,
+        description,
       },
     })
 
