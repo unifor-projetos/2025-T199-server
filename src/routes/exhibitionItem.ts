@@ -18,7 +18,7 @@ router.post(
   "/",
   async (req: Request<{}, {}, ExhibitionItemData>, res: Response) => {
     try {
-      const { title, description ,date, imageUrl } = req.body;
+      const { title, description, date, imageUrl } = req.body;
 
       const user = await prisma.exhibitionItem.create({
         data: {
@@ -31,13 +31,14 @@ router.post(
 
       res.send(user);
     } catch (e) {
+      console.log(e);
       res.status(500).send(e);
     }
   }
 );
 
 router.put("/", async (req: Request, res: Response) => {
-  try{
+  try {
     const { title, description, date, imageUrl, id } = req.body;
 
     const updateUser = await prisma.exhibitionItem.update({
@@ -45,33 +46,32 @@ router.put("/", async (req: Request, res: Response) => {
         id,
       },
       data: {
-        title, 
-        description, 
+        title,
+        description,
         date,
         imageUrl,
       },
-    })
+    });
 
-    res.send(updateUser)
+    res.send(updateUser);
   } catch (e) {
-    res.status(500).send(e)
+    res.status(500).send(e);
   }
-
 });
 
 router.delete("/", async (req: Request, res: Response) => {
-  try{
+  try {
     const { title, description, date, imageUrl, id } = req.body;
 
     const deleteUser = await prisma.exhibitionItem.delete({
-      where:{
+      where: {
         title,
         description,
         date,
         id,
         imageUrl,
       },
-    })
+    });
 
     res.send(deleteUser);
   } catch (e) {
