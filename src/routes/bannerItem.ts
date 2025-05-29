@@ -33,24 +33,25 @@ router.post(
   }
 );
 
-router.put("/", async (req: Request, res: Response) => {
-  try{
-    const { imageUrl, id } = req.body;
+router.put("/:id", async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+    const { imageUrl } = req.body;
 
     const updateUser = await prisma.bannerItem.update({
       where: {
         id,
       },
       data: {
+        id,
         imageUrl,
       },
-    })
+    });
 
-    res.send(updateUser)
+    res.send(updateUser);
   } catch (e) {
-    res.status(500).send(e)
+    res.status(500).send(e);
   }
-
 });
 
 router.delete("/:id", async (req: Request, res: Response) => {

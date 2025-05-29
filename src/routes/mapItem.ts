@@ -14,49 +14,47 @@ router.get("/", async (req: Request, res: Response) => {
   }
 });
 
-router.post(
-  "/",
-  async (req: Request<{}, {}, MapItemData>, res: Response) => {
-    try {
-      const { name, x, y, description } = req.body;
+router.post("/", async (req: Request<{}, {}, MapItemData>, res: Response) => {
+  try {
+    const { name, x, y, description } = req.body;
 
-      const user = await prisma.mapItem.create({
-        data: {
-          name,
-          x,
-          y,
-          description,
-        },
-      });
-
-      res.send(user);
-    } catch (e) {
-      res.status(500).send(e);
-    }
-  }
-);
-
-router.put("/", async (req: Request, res: Response) => {
-  try{
-    const { name, id, x, y, description } = req.body;
-
-    const updateUser = await prisma.mapItem.update({
-      where: {
-        id,
-      },
+    const user = await prisma.mapItem.create({
       data: {
         name,
         x,
         y,
         description,
       },
-    })
+    });
 
-    res.send(updateUser)
+    res.send(user);
   } catch (e) {
-    res.status(500).send(e)
+    res.status(500).send(e);
   }
+});
 
+router.put("/:id", async (req: Request, res: Response) => {
+  try {
+    const id = Number(req.params.id);
+    const { name, x, y, description } = req.body;
+
+    const updateUser = await prisma.mapItem.update({
+      where: {
+        id,
+      },
+      data: {
+        id,
+        name,
+        x,
+        y,
+        description,
+      },
+    });
+
+    res.send(updateUser);
+  } catch (e) {
+    res.status(500).send(e);
+  }
 });
 
 router.delete("/:id", async (req: Request, res: Response) => {

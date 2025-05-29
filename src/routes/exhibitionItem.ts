@@ -37,15 +37,17 @@ router.post(
   }
 );
 
-router.put("/", async (req: Request, res: Response) => {
+router.put("/:id", async (req: Request, res: Response) => {
   try {
-    const { title, description, date, imageUrl, id } = req.body;
+    const id = Number(req.params.id);
+    const { title, description, date, imageUrl } = req.body;
 
     const updateUser = await prisma.exhibitionItem.update({
       where: {
         id,
       },
       data: {
+        id,
         title,
         description,
         date,
@@ -63,7 +65,7 @@ router.delete("/:id", async (req: Request, res: Response) => {
   try {
     const id = Number(req.params.id);
 
-    const deleteUser = await prisma.bannerItem.delete({
+    const deleteUser = await prisma.exhibitionItem.delete({
       where: { id },
     });
 
