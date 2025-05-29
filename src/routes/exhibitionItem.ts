@@ -59,18 +59,12 @@ router.put("/", async (req: Request, res: Response) => {
   }
 });
 
-router.delete("/", async (req: Request, res: Response) => {
+router.delete("/:id", async (req: Request, res: Response) => {
   try {
-    const { title, description, date, imageUrl, id } = req.body;
+    const id = Number(req.params.id);
 
-    const deleteUser = await prisma.exhibitionItem.delete({
-      where: {
-        title,
-        description,
-        date,
-        id,
-        imageUrl,
-      },
+    const deleteUser = await prisma.bannerItem.delete({
+      where: { id },
     });
 
     res.send(deleteUser);
